@@ -12,7 +12,7 @@ export default function SearchPage() {
       return;
     }
    const {data}  = await axios.get('/searchplaces/'+search2);
-   console.log(data);
+   
    setplaces(data);
 
   }, [search]);
