@@ -6,7 +6,6 @@ import { Link, useParams } from "react-router-dom";
 export default function SearchPage() {
   var {search} =useParams();
   var search2 = search.charAt(0).toUpperCase() + search?.slice(1);
-
   const [places, setplaces] = useState([]);
   useEffect(async () => {
     if(!search){
