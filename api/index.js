@@ -1,4 +1,5 @@
 const express = require('express');
+const port = process.env.PORT || 4000;
 const cors = require('cors');
 const { default: mongoose } = require('mongoose');
  const bcrypt = require('bcryptjs'); //bcrypt
@@ -18,7 +19,7 @@ app.use(cookieParser());
 app.use('/uploads', express.static(__dirname+"/uploads"));
 app.use(cors({
   credentials: true,
-  origin:'http://localhost:5173',
+  origin: true
 }));
 
 function getUserDataFromToken(req){
@@ -200,4 +201,4 @@ app.get('/searchplaces/:search', async(req, res) => {
   res.json(await Place.find({ address: { $regex: search } }));
 });
 
-app.listen(4000);
+app.listen(port);
